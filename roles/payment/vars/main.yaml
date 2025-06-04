@@ -1,0 +1,5 @@
+CART_HOST: cart.augustys.fun
+USER_HOST: user.augustys.fun
+RABBITMQ_HOST: rabbitmq.augustys.fun
+RABBITMQ_USER: roboshop
+RABBITMQ_PASSWORD: roboshop123

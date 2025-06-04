@@ -1,0 +1,4 @@
+CART_HOST: cart.augustys.fun
+MYSQL_HOST: mysql.augustys.fun
+MYSQL_ROOT_USER: root
+MYSQL_PASSWORD: RoboShop@1
