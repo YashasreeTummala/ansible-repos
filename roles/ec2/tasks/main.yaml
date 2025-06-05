@@ -8,7 +8,7 @@
     tags:
       Name: "{{ item }}"
   loop: "{{ component }}"
-  register: ec2-output
+  register: ec2_output
 
 - name: Show instance details
   ansible.builtin.debug:
