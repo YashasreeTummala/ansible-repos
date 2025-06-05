@@ -1,6 +1,6 @@
 - name: Create EC2 instance
       amazon.aws.ec2_instance:
-        name: "{{ component }}""
+        name: "{{ component }}"
         image_id: ami-09c813fb71547fc4f
         instance_type: t3.micro
         region: us-east-1

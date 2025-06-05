@@ -5,11 +5,13 @@
   vars:
     component:  # Specify the component name here, e.g., webserver, database, etc.
     - mongodb
-  tasks:
-  - name: Launch ec2 for each component
-    include_role:
-      name: ec2
-    vars:
-      component: "{{ item }}"
-    loop: "{{ component }}"
+  roles:
+    - ec2
+  # tasks:
+  # - name: Launch ec2 for each component
+  #   include_role:
+  #     name: ec2
+  #   vars:
+  #     components: "{{ item }}"
+  #   loop: "{{ component }}"
     
