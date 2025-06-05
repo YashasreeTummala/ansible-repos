@@ -4,7 +4,7 @@
   gather_facts: no
   vars:
     component:  # Specify the component name here, e.g., webserver, database, etc.
-    - mongodb
+      - mongodb
   roles:
     - ec2
   # tasks:
