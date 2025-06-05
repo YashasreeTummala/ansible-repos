@@ -5,6 +5,7 @@
     instance_type: t3.micro
     region: us-east-1
     security_groups: sg-0c02775e9220c1fde
+     subnet_id: subnet-01f0f838ccef95be0
     tags:
       Name: "{{ item }}"
   loop: "{{ component }}"
