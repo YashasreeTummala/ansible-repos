@@ -1,0 +1,15 @@
+- name: create ec2 instance
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    component:  # Specify the component name here, e.g., webserver, database, etc.
+    - mongodb
+  tasks:
+  - name: Launch ec2 for each component
+    include_role:
+      name: ec2
+    vars:
+      component: "{{ item }}"
+    loop: "{{ component }}"
+    
