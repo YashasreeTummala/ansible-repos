@@ -16,7 +16,7 @@
       - rabbitmq
       - payment
       - frontend
-
+    zone: augustys.fun
   tasks:
     - name: Ensure pip3 is installed
       ansible.builtin.package:

@@ -4,7 +4,6 @@
     image_id: ami-09c813fb71547fc4f
     instance_type: t3.micro
     region: us-east-1
-    zone: augustys.fun
     security_groups: 
       - sg-0c02775e9220c1fde
     subnet_id: subnet-01f0f838ccef95be0
