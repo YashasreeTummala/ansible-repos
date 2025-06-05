@@ -14,5 +14,5 @@
 
 - name: Show instance details
   ansible.builtin.debug:
-  msg: "{{ ec2_output }}"
+    msg: "{{ ec2_output }}"
 
