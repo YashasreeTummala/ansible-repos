@@ -27,7 +27,9 @@
     wait: true
     overwrite: true
   loop: "{{ ec2_output.results }}"
-  when: item.item != "frontend"
+  loop_control:
+    loop_var: ec2_item
+  when: ec2_item.item != "frontend"
 
 - name: Create Route 53 record for frontend (public IP)
   amazon.aws.route53:
@@ -40,5 +42,7 @@
     wait: true
     overwrite: true
   loop: "{{ ec2_output.results }}"
-  when: item.item == "frontend"
+  loop_control:
+    loop_var: ec2_item
+  when: ec2_item.item == "frontend"
 
