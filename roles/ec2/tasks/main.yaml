@@ -4,6 +4,7 @@
     image_id: ami-09c813fb71547fc4f
     instance_type: t3.micro
     region: us-east-1
+    zone: augustys.fun
     security_groups: 
       - sg-0c02775e9220c1fde
     subnet_id: subnet-01f0f838ccef95be0
@@ -15,4 +16,30 @@
 - name: Show instance details
   ansible.builtin.debug:
     msg: "{{ ec2_output }}"
+
+- name: Create Route 53 records for private IPs (non-frontend)
+  amazon.aws.route53:
+    state: present
+    zone: "{{ zone }}"                      # your domain, e.g. augustys.fun
+    record: "{{ item.item }}.{{ zone }}"   # builds e.g. mongodb.augustys.fun
+    type: A
+    ttl: 1
+    value: "{{ item.instances[0].private_ip_address }}"
+    wait: true
+    overwrite: true
+  loop: "{{ ec2_output.results }}"
+  when: item.item != "frontend"
+
+- name: Create Route 53 record for frontend (public IP)
+  amazon.aws.route53:
+    state: present
+    zone: "{{ zone }}"
+    record: "frontend.{{ zone }}"
+    type: A
+    ttl: 1
+    value: "{{ item.instances[0].public_ip_address }}"
+    wait: true
+    overwrite: true
+  loop: "{{ ec2_output.results }}"
+  when: item.item == "frontend"
 

@@ -1,4 +1,4 @@
-- name: Setup environment and create EC2 instance
+- name: Setup environment and launch EC2 instances for all components
   hosts: localhost
   connection: local
   gather_facts: no
@@ -6,6 +6,16 @@
     ansible_python_interpreter: /usr/bin/python3
     component:  # Specify the component name here, e.g., webserver, database, etc.
       - mongodb
+      - redis
+      - catalogue
+      - redis
+      - user
+      - cart
+      - mysql
+      - shipping
+      - rabbitmq
+      - payment
+      - frontend
 
   tasks:
     - name: Ensure pip3 is installed
@@ -20,14 +30,11 @@
           - boto3
           - botocore
         executable: pip3
+
     - name: Include ec2 role
       ansible.builtin.include_role:
         name: ec2
-    # tasks:
-    # - name: Launch ec2 for each component
-    #   include_role:
-    #     name: ec2
-    #   vars:
-    #     components: "{{ item }}"
-    #   loop: "{{ component }}"
+      vars:
+        components: "{{ component }}"
+      loop: "{{ component }}"
       
