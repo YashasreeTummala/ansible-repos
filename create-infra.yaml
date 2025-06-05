@@ -20,8 +20,8 @@
           - botocore
         executable: pip3
     - name: Include ec2 role
-        ansible.builtin.include_role:
-          name: ec2
+      ansible.builtin.include_role:
+        name: ec2
     # tasks:
     # - name: Launch ec2 for each component
     #   include_role:
