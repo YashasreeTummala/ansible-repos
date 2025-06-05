@@ -47,5 +47,9 @@
     dest: /etc/nginx/nginx.conf
   notify:
     - Restart nginx
-
     # notify: same name as in handler
+- name: validate nginx config
+  ansible.builtin.command: nginx -t
+  register: nginx_config_test
+  changed_when: false
+  failed_when: nginx_config_test.rc != 0
