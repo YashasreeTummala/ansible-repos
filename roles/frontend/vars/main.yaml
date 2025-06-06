@@ -1,5 +1,5 @@
 CATALOGUE_HOST: catalogue.augustys.fun
-USER_HOST: user.augustys.fun
-CART_HOST: cart.augustys.fun
-SHIPPING_HOST: shipping.augustys.fun
-PAYMENT_HOST: payment.augustys.fun
+# USER_HOST: user.augustys.fun
+# CART_HOST: cart.augustys.fun
+# SHIPPING_HOST: shipping.augustys.fun
+# PAYMENT_HOST: payment.augustys.fun
